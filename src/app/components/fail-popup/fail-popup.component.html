@@ -1,0 +1,11 @@
+<div class="overlay" *ngIf="isVisible">
+    <div class="popup">
+      <h2>Game Over</h2>
+      <p>You have made 3 errors. What would you like to do?</p>
+      <div class="button-group">
+        <button (click)="onRestart()">Restart</button>
+        <button (click)="onBackToStart()">Back to Start</button>
+      </div>
+    </div>
+</div>
+  

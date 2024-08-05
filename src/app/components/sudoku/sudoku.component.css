@@ -1,0 +1,203 @@
+.container {
+  width: 100vw;
+  height: 80vh;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.backToStart{
+  margin: 30px;
+  font-size: 250%;
+  font-weight: bold;
+  color: #325aafcd;
+  cursor: pointer;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 400%;
+  font-weight: bold;
+  color: #325aaf;
+}
+
+.title h1 {
+  margin: 0px;
+}
+
+.difficulty-select {
+  margin-bottom: 10px;
+}
+
+.top-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 150%;
+}
+
+.difficulty-easy {
+  color: lightblue;
+  font-weight: bold;
+}
+
+.difficulty-medium {
+  color: deepskyblue;
+  font-weight: bold;
+}
+
+.difficulty-hard {
+  color: darkblue;
+  font-weight: bold;
+}
+
+
+.game-field {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5rem;
+  gap: 5rem;
+  align-items: center;
+}
+
+.sudoku-board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  border: 3px solid black;
+}
+
+.sudoku-row {
+  display: contents;
+}
+
+.sudoku-cell {
+  border: 1px solid #bfc6d4;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 300%;
+  position: relative;
+}
+
+.sudoku-cell.free-cell {
+  background-color: #fff;
+}
+
+.sudoku-cell.selected {
+  background-color: #bbdefb !important;
+}
+
+.sudoku-cell.number-cell {
+  color: black;
+}
+
+.sudoku-cell.user-input {
+  color: #325aaf;
+}
+
+.sudoku-cell.incorrect-cell {
+  color: red;
+}
+
+.sudoku-cell.highlighted {
+  background-color: #e2ebf3; 
+}
+
+.sudoku-cell.same-value {
+  background-color: #bbdefb 
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  font-size: 0.5em;
+}
+
+.note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.note.active {
+  color: gray;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.numpad-button {
+  width: 140px;
+  height: 140px;
+  background-color: #f0f0f0;
+  color: #325aaf;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 4rem;
+  user-select: none;
+}
+
+.numpad-button:not(.numpad-action-button):hover {
+  background-color: lightgrey; 
+}
+
+.numpad-action-button {
+  font-size: 3rem;
+  margin-top: 20px;
+  background-color: #325aaf;
+  color: #fff;
+}
+
+/* .numpad-button.note-mode-active {
+  background-color: #325aaf;
+  color: #bbeffb;
+} */
+
+.numpad-action-button-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.numpad-button:hover {
+  background-color: #325aafcd;
+}
+.highlight-row, .highlight-col, .highlight-box {
+  background-color: rgba(0, 0, 255, 0.2);
+}
+
+.sudoku-cell:nth-child(3n+1) {
+  border-left: px solid #00000068;
+}
+
+.sudoku-cell:nth-child(3n) {
+  border-right: 3px solid #00000068;
+}
+
+.sudoku-row:nth-child(3n) .sudoku-cell {
+  border-bottom: 3px solid #00000068;
+}
+

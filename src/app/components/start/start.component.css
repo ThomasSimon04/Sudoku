@@ -1,0 +1,27 @@
+  .start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20vh;
+    font-size: 400%;
+    height: auto;
+  }
+
+  h1 {
+    color: #325aaf;
+  }
+  
+  button {
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    font-size: 100%;
+    letter-spacing: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+  }
+
+  button:hover {
+    color: #325aafcd;
+  }
+  

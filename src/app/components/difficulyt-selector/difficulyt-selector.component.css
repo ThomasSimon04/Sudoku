@@ -1,0 +1,46 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.difficulty-selector {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 300%;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .difficulty-selector button {
+    width: 400px;
+    height: 100px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #325aaf;
+    color: white;
+    cursor: pointer;
+    font-size: 100%;
+  }
+  
+  .difficulty-selector button:hover {
+    background: #325aafcd;
+  }
+
+  .backToStart{
+    margin: 30px;
+    font-size: 250%;
+    font-weight: bold;
+    color: #325aafcd;
+    cursor: pointer;
+  }
+  

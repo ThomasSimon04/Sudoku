@@ -1,0 +1,13 @@
+<div class="overlay" *ngIf="isVisible">
+    <div class="popup">
+      <h2>Congratulations!</h2>
+      <p>You have completed the Sudoku puzzle.</p>
+      <p>Time: {{ formatTime(finalTime) }}</p>
+      <p>Difficulty: {{ difficulty }}</p>
+      <p>Errors: {{ errorCount }}</p>
+      <div class="button-group">
+        <button (click)="onRestart()">Restart</button>
+        <button (click)="onBackToStart()">Back to Start</button>
+      </div>
+    </div>
+  </div>

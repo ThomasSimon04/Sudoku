@@ -1,0 +1,89 @@
+<div class="container">
+
+  <div class="backToStart" (click)="navigateBackToStart()">
+    <fa-icon [icon]="faArrowLeft"></fa-icon>
+    Back
+  </div>
+
+  <div class="title">
+    <h1>Sudoku</h1>
+  </div>
+  
+  <div class="game-field">
+    <div class="left">
+      <div class="top-info">
+        <div class="error-count">
+        Errors: {{ errorCount }}/{{ maxErrors }}
+      </div>
+      <div class="difficulty-info">
+        Difficulty: <span [ngClass]="{'difficulty-easy': difficulty === 'easy', 'difficulty-medium': difficulty === 'medium', 'difficulty-hard': difficulty === 'hard'}">{{ difficulty | uppercase }}</span>
+      </div>
+      <div class="timer">
+        Time: {{ formatTime(timeElapsed) }}
+      </div>
+      </div>
+      <div class="sudoku-board">
+        <div *ngFor="let row of board; let rowIndex = index" class="sudoku-row">
+          <div *ngFor="let cell of row; let colIndex = index"
+               class="sudoku-cell"
+               [class.selected]="selectedCell?.row === rowIndex && selectedCell?.col === colIndex"
+               [class.free-cell]="cell === 0"
+               [class.number-cell]="cell !== 0"
+               [class.user-input]="isUserInput(rowIndex, colIndex)"
+               [class.incorrect-cell]="isIncorrectCell(rowIndex, colIndex)"
+               [class.highlighted]="highlightedCells.has(rowIndex + '-' + colIndex)"
+               [class.same-value]="sameValueCells.has(rowIndex + '-' + colIndex)"
+               (click)="selectCell(rowIndex, colIndex)">
+            <ng-container *ngIf="cell !== 0; else notesTemplate">
+              {{ cell }}
+            </ng-container>
+            <ng-template #notesTemplate>
+              <div class="notes-grid">
+                <div *ngFor="let n of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+                     class="note"
+                     [class.active]="getNotes(rowIndex, colIndex)?.has(n)">
+                  {{ getNotes(rowIndex, colIndex)?.has(n) ? n : '' }}
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>    
+    </div>    
+    <div class="numpad">
+      <div *ngFor="let num of [1, 2, 3, 4, 5, 6, 7, 8, 9]" 
+           class="numpad-button" 
+           (click)="startInputNumber(num)">
+        {{ num }}
+      </div>
+      <div class="numpad-button numpad-action-button" (click)="undo()">
+        <fa-icon [icon]="faUndo"></fa-icon>
+      </div>
+      <div class="numpad-button numpad-action-button" (click)="startDeleteNumber()">
+        <fa-icon [icon]="faEraser"></fa-icon>
+      </div>
+      <div class="numpad-button numpad-action-button"
+           [class.note-mode-active]="isNoteMode"
+           (click)="toggleNoteMode()">
+        <div class="numpad-action-button-text">
+          <fa-icon [icon]="faPen"></fa-icon>
+          {{ isNoteMode ? 'ON' : 'OFF' }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-fail-popup
+  [isVisible]="showErrorPopup"
+  (close)="onFailPopupClose()"
+  (restart)="onFailPopupRestart()"
+  (backToStart)="onFailPopupBackToStart()">
+</app-fail-popup>
+<app-win-popup
+    [isVisible]="showWinPopup"
+    [finalTime]="finalTime"
+    [difficulty]="getCurrentDifficulty()"
+    (close)="onWinPopupClose()"
+    (restart)="onWinPopupRestart()"
+    (backToStart)="onWinPopupBackToStart()">
+  </app-win-popup>
+</div>

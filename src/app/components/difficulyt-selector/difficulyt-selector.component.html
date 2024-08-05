@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="backToStart" (click)="navigateBackToStart()">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+     Back
+    </div>
+    <div class="difficulty-selector">
+        <h2>Select Difficulty</h2>
+        <div class="button-group">
+            <button (click)="selectDifficulty('easy')">Easy</button>
+        <button (click)="selectDifficulty('medium')">Medium</button>
+        <button (click)="selectDifficulty('hard')">Hard</button>
+        </div>
+    </div>
+</div>
+
+
+  
